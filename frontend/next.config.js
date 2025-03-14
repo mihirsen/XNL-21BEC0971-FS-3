@@ -8,6 +8,9 @@ const withPWA = require("next-pwa")({
 
 const nextConfig = {
   reactStrictMode: true,
+  experimental: {
+    appDir: true,
+  },
   images: {
     domains: ["via.placeholder.com", "source.unsplash.com"],
   },
