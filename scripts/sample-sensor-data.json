@@ -1,0 +1,134 @@
+[
+  {
+    "type": "traffic",
+    "value": 785,
+    "status": "warning",
+    "coordinates": [-74.005, 40.713],
+    "timestamp": "2023-03-14T10:00:00Z",
+    "metadata": {
+      "deviceId": "traffic-sensor-123",
+      "batteryLevel": 87
+    }
+  },
+  {
+    "type": "traffic",
+    "value": 920,
+    "status": "critical",
+    "coordinates": [-74.009, 40.715],
+    "timestamp": "2023-03-14T10:05:00Z",
+    "metadata": {
+      "deviceId": "traffic-sensor-124",
+      "batteryLevel": 92
+    }
+  },
+  {
+    "type": "traffic",
+    "value": 350,
+    "status": "normal",
+    "coordinates": [-73.998, 40.719],
+    "timestamp": "2023-03-14T10:10:00Z",
+    "metadata": {
+      "deviceId": "traffic-sensor-125",
+      "batteryLevel": 78
+    }
+  },
+  {
+    "type": "air_quality",
+    "value": 42,
+    "status": "normal",
+    "coordinates": [-74.005, 40.712],
+    "timestamp": "2023-03-14T10:15:00Z",
+    "metadata": {
+      "deviceId": "air-sensor-001",
+      "batteryLevel": 95
+    }
+  },
+  {
+    "type": "air_quality",
+    "value": 142,
+    "status": "warning",
+    "coordinates": [-74.011, 40.718],
+    "timestamp": "2023-03-14T10:20:00Z",
+    "metadata": {
+      "deviceId": "air-sensor-002",
+      "batteryLevel": 88
+    }
+  },
+  {
+    "type": "air_quality",
+    "value": 250,
+    "status": "critical",
+    "coordinates": [-73.995, 40.719],
+    "timestamp": "2023-03-14T10:25:00Z",
+    "metadata": {
+      "deviceId": "air-sensor-003",
+      "batteryLevel": 72
+    }
+  },
+  {
+    "type": "energy",
+    "value": 2500,
+    "status": "normal",
+    "coordinates": [-74.008, 40.71],
+    "timestamp": "2023-03-14T10:30:00Z",
+    "metadata": {
+      "deviceId": "energy-sensor-001",
+      "batteryLevel": 91
+    }
+  },
+  {
+    "type": "energy",
+    "value": 3800,
+    "status": "warning",
+    "coordinates": [-74.012, 40.716],
+    "timestamp": "2023-03-14T10:35:00Z",
+    "metadata": {
+      "deviceId": "energy-sensor-002",
+      "batteryLevel": 84
+    }
+  },
+  {
+    "type": "energy",
+    "value": 4800,
+    "status": "critical",
+    "coordinates": [-73.997, 40.715],
+    "timestamp": "2023-03-14T10:40:00Z",
+    "metadata": {
+      "deviceId": "energy-sensor-003",
+      "batteryLevel": 76
+    }
+  },
+  {
+    "type": "water",
+    "value": 950,
+    "status": "normal",
+    "coordinates": [-74.002, 40.711],
+    "timestamp": "2023-03-14T10:45:00Z",
+    "metadata": {
+      "deviceId": "water-sensor-001",
+      "batteryLevel": 93
+    }
+  },
+  {
+    "type": "water",
+    "value": 1500,
+    "status": "warning",
+    "coordinates": [-74.013, 40.717],
+    "timestamp": "2023-03-14T10:50:00Z",
+    "metadata": {
+      "deviceId": "water-sensor-002",
+      "batteryLevel": 81
+    }
+  },
+  {
+    "type": "water",
+    "value": 1950,
+    "status": "critical",
+    "coordinates": [-73.998, 40.714],
+    "timestamp": "2023-03-14T10:55:00Z",
+    "metadata": {
+      "deviceId": "water-sensor-003",
+      "batteryLevel": 67
+    }
+  }
+]
