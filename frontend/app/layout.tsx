@@ -2,19 +2,20 @@ import React from "react";
 import "./globals.css";
 import Providers from "./providers";
 
-export const metadata = {
-  title: "Smart City Dashboard",
-  description:
-    "Real-time monitoring and analytics for your smart city infrastructure",
-  manifest: "/manifest.json",
-  themeColor: "#3B82F6",
-  viewport: "width=device-width, initial-scale=1, maximum-scale=1",
-  appleWebApp: {
-    capable: true,
-    statusBarStyle: "black-translucent",
-    title: "Smart City",
-  },
-};
+// Removing metadata export as it's not supported in Next.js 13.1.1
+// export const metadata = {
+//   title: "Smart City Dashboard",
+//   description:
+//     "Real-time monitoring and analytics for your smart city infrastructure",
+//   manifest: "/manifest.json",
+//   themeColor: "#3B82F6",
+//   viewport: "width=device-width, initial-scale=1, maximum-scale=1",
+//   appleWebApp: {
+//     capable: true,
+//     statusBarStyle: "black-translucent",
+//     title: "Smart City",
+//   },
+// };
 
 export default function RootLayout({
   children,
