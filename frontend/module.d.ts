@@ -31,13 +31,20 @@ declare module "@/components/global/GlobalAlert" {
   export function AlertProvider(props: AlertProviderProps): JSX.Element;
 }
 
-// Add React hooks declarations
+// Add React hooks and type declarations
 declare module "react" {
   export function useEffect(
     effect: () => void | (() => void),
     deps?: any[]
   ): void;
+
   export type ReactNode = any;
+
+  // Add FC type for functional components
+  export type FC<P = {}> = FunctionComponent<P>;
+  export interface FunctionComponent<P = {}> {
+    (props: P): JSX.Element | null;
+  }
 }
 
 // Add Next.js navigation module

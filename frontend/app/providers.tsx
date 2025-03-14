@@ -10,14 +10,27 @@ interface ProvidersProps {
 }
 
 export default function Providers({ children }: ProvidersProps) {
+  // Create type-safe versions of our components with proper children typing
+  const TypeSafeThemeProvider = ThemeProvider as React.FC<{
+    children: ReactNode;
+    attribute: string;
+    defaultTheme: string;
+    enableSystem: boolean;
+  }>;
+
+  const TypeSafeAlertProvider = AlertProvider as React.FC<{
+    children: ReactNode;
+  }>;
+
+  const TypeSafeWebSocketProvider = WebSocketProvider as React.FC<{
+    children: ReactNode;
+  }>;
+
   return (
-    // @ts-expect-error - Type definition issue
-    <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-      {/* @ts-expect-error - Type definition issue */}
-      <AlertProvider>
-        {/* @ts-expect-error - Type definition issue */}
-        <WebSocketProvider>{children}</WebSocketProvider>
-      </AlertProvider>
-    </ThemeProvider>
+    <TypeSafeThemeProvider attribute="class" defaultTheme="system" enableSystem>
+      <TypeSafeAlertProvider>
+        <TypeSafeWebSocketProvider>{children}</TypeSafeWebSocketProvider>
+      </TypeSafeAlertProvider>
+    </TypeSafeThemeProvider>
   );
 }
