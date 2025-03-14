@@ -17,11 +17,11 @@ import Providers from "./providers";
 //   },
 // };
 
-export default function RootLayout({
-  children,
-}: {
+interface RootLayoutProps {
   children: React.ReactNode;
-}) {
+}
+
+export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <html lang="en" className="h-full" suppressHydrationWarning>
       <head>
