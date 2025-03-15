@@ -7,6 +7,8 @@
 //   skipWaiting: true,
 // });
 
+const path = require("path");
+
 const nextConfig = {
   reactStrictMode: true,
   // Re-enable experimental appDir which is needed for the app directory
@@ -44,6 +46,16 @@ const nextConfig = {
   },
   // Ensure trailing slashes for compatibility
   trailingSlash: true,
+  // Configure webpack to handle path aliases correctly
+  webpack: (config, { buildId, dev, isServer, defaultLoaders, webpack }) => {
+    // Correctly resolve path aliases
+    config.resolve.alias = {
+      ...config.resolve.alias,
+      "@": path.resolve(__dirname),
+    };
+
+    return config;
+  },
 };
 
 // module.exports = withPWA(nextConfig);

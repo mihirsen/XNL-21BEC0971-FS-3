@@ -17,9 +17,43 @@ try {
   console.log("Could not determine Next.js version:", error.message);
 }
 
+// Check for the existence of key components that might be causing issues
+const componentsToCheck = [
+  "components/layout/MainLayout.tsx",
+  "components/ui/card.tsx",
+];
+
+console.log("\nChecking for critical components:");
+componentsToCheck.forEach((componentPath) => {
+  const fullPath = path.join(__dirname, componentPath);
+  const exists = fs.existsSync(fullPath);
+  console.log(`- ${componentPath}: ${exists ? "EXISTS" : "MISSING"}`);
+
+  if (exists) {
+    try {
+      const content = fs.readFileSync(fullPath, "utf8");
+      const hasDefaultExport =
+        content.includes("export default") ||
+        content.includes("= React.forwardRef");
+      console.log(`  - Has exports: ${hasDefaultExport ? "YES" : "NO"}`);
+    } catch (err) {
+      console.log(`  - Error reading file: ${err.message}`);
+    }
+  }
+});
+
+// Check tsconfig paths configuration
+try {
+  const tsconfig = require("./tsconfig.json");
+  console.log("\nTSConfig paths configuration:");
+  console.log(JSON.stringify(tsconfig.compilerOptions.paths, null, 2));
+} catch (error) {
+  console.log("\nError reading tsconfig.json:", error.message);
+}
+
 try {
   // Display Next.js config
-  console.log("Next.js config:");
+  console.log("\nNext.js config:");
   const nextConfig = require("./next.config.js");
   console.log(JSON.stringify(nextConfig, null, 2));
 
