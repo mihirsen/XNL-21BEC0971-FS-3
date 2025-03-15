@@ -27,10 +27,15 @@ export default function Providers({ children }: ProvidersProps) {
   }>;
 
   return (
-    <TypeSafeThemeProvider attribute="class" defaultTheme="system" enableSystem>
-      <TypeSafeAlertProvider>
-        <TypeSafeWebSocketProvider>{children}</TypeSafeWebSocketProvider>
-      </TypeSafeAlertProvider>
-    </TypeSafeThemeProvider>
+    <TypeSafeThemeProvider
+      attribute="class"
+      defaultTheme="system"
+      enableSystem
+      children={
+        <TypeSafeAlertProvider
+          children={<TypeSafeWebSocketProvider children={children} />}
+        />
+      }
+    />
   );
 }
