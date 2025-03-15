@@ -1,0 +1,11 @@
+[build]
+  base = "frontend"
+  publish = ".next"
+  command = "npm run build:no-checks"
+
+[build.environment]
+  NETLIFY_NEXT_PLUGIN_SKIP = "true"
+  NEXT_SKIP_TYPESCRIPT_AND_ESLINT_CHECKS = "1"
+
+[[plugins]]
+  package = "@netlify/plugin-nextjs" 

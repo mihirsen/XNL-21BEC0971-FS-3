@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "build:no-checks": "NEXT_SKIP_TYPESCRIPT_AND_ESLINT_CHECKS=1 next build",
+    "build:no-checks": "cross-env NEXT_SKIP_TYPESCRIPT_AND_ESLINT_CHECKS=1 next build",
     "start": "next start",
     "lint": "next lint",
     "test": "jest"
@@ -20,6 +20,7 @@
     "@types/react-dom": "^19.0.4",
     "@types/recharts": "^1.8.29",
     "chart.js": "^4.4.8",
+    "cross-env": "^7.0.3",
     "d3": "^7.9.0",
     "framer-motion": "^12.5.0",
     "lucide-react": "^0.479.0",
