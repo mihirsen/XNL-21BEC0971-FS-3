@@ -1,8 +1,7 @@
-# Smart City Monitoring Platform
+# Smart City Monitoring Platform by Mihir sen 21BEC0971
 
 A comprehensive monitoring and management solution for smart city infrastructure, providing real-time visualization, analytics, and citizen engagement tools.
 
-![Smart City Dashboard Screenshot](frontend/public/images/dashboard-screenshot.png)
 
 ## Features
 
