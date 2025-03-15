@@ -13,9 +13,44 @@ console.log("Current directory:", process.cwd());
 try {
   const packageJson = require("./package.json");
   console.log("Next.js version:", packageJson.dependencies.next);
+  console.log(
+    "TailwindCSS version:",
+    packageJson.dependencies.tailwindcss || "Not found in dependencies"
+  );
 } catch (error) {
-  console.log("Could not determine Next.js version:", error.message);
+  console.log("Could not determine versions:", error.message);
 }
+
+// Check for installed node_modules
+console.log("\nChecking for critical dependencies:");
+const dependenciesToCheck = [
+  "tailwindcss",
+  "next",
+  "react",
+  "react-dom",
+  "postcss",
+];
+
+dependenciesToCheck.forEach((dep) => {
+  try {
+    const moduleExists = fs.existsSync(
+      path.join(__dirname, "node_modules", dep)
+    );
+    console.log(`- ${dep}: ${moduleExists ? "INSTALLED" : "MISSING"}`);
+
+    if (moduleExists) {
+      try {
+        // Try to require the package to verify it's properly installed
+        require(dep);
+        console.log(`  - Module can be required: YES`);
+      } catch (err) {
+        console.log(`  - Module can be required: NO - ${err.message}`);
+      }
+    }
+  } catch (err) {
+    console.log(`- Error checking ${dep}: ${err.message}`);
+  }
+});
 
 // Check for the existence of key components that might be causing issues
 const componentsToCheck = [
@@ -41,6 +76,34 @@ componentsToCheck.forEach((componentPath) => {
     }
   }
 });
+
+// Check tailwind configuration
+const tailwindConfigPath = path.join(__dirname, "tailwind.config.js");
+if (fs.existsSync(tailwindConfigPath)) {
+  console.log("\nTailwind config exists");
+  try {
+    const tailwindConfig = require("./tailwind.config.js");
+    console.log("Tailwind config content:", tailwindConfig.content);
+  } catch (error) {
+    console.log("Error loading tailwind config:", error.message);
+  }
+} else {
+  console.log("\nTailwind config file not found!");
+}
+
+// Check PostCSS configuration
+const postcssConfigPath = path.join(__dirname, "postcss.config.js");
+if (fs.existsSync(postcssConfigPath)) {
+  console.log("\nPostCSS config exists");
+  try {
+    const postcssConfig = require("./postcss.config.js");
+    console.log("PostCSS plugins:", Object.keys(postcssConfig.plugins || {}));
+  } catch (error) {
+    console.log("Error loading PostCSS config:", error.message);
+  }
+} else {
+  console.log("\nPostCSS config file not found!");
+}
 
 // Check tsconfig paths configuration
 try {
