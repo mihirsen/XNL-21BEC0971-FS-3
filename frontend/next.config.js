@@ -9,9 +9,10 @@
 
 const nextConfig = {
   reactStrictMode: true,
-  experimental: {
-    appDir: true,
-  },
+  // Remove experimental appDir which might not be fully compatible with static export
+  // experimental: {
+  //   appDir: true,
+  // },
   // Add output: 'export' to enable static site generation
   output: "export",
   images: {
@@ -33,6 +34,8 @@ const nextConfig = {
     // your project has ESLint errors.
     ignoreDuringBuilds: true,
   },
+  // Ensure trailing slashes for compatibility
+  trailingSlash: true,
 };
 
 // module.exports = withPWA(nextConfig);

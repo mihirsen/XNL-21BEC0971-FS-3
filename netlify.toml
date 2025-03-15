@@ -1,8 +1,9 @@
 [build]
   base = "frontend"
   publish = "out"
-  command = "npm run build:no-checks"
+  command = "node build-debug.js"
 
 [build.environment]
   NETLIFY_NEXT_PLUGIN_SKIP = "true"
-  NEXT_SKIP_TYPESCRIPT_AND_ESLINT_CHECKS = "1" 
+  NEXT_SKIP_TYPESCRIPT_AND_ESLINT_CHECKS = "1"
+  NODE_ENV = "production" 
