@@ -9,10 +9,18 @@
 
 const nextConfig = {
   reactStrictMode: true,
-  // Remove experimental appDir which might not be fully compatible with static export
-  // experimental: {
-  //   appDir: true,
-  // },
+  // Re-enable experimental appDir which is needed for the app directory
+  experimental: {
+    appDir: true,
+    // Add workarounds for app directory in static export
+    outputFileTracingExcludes: {
+      "*": [
+        "node_modules/@swc/core-linux-x64-gnu",
+        "node_modules/@swc/core-linux-x64-musl",
+        "node_modules/@esbuild/linux-x64",
+      ],
+    },
+  },
   // Add output: 'export' to enable static site generation
   output: "export",
   images: {
