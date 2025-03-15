@@ -48,6 +48,15 @@ const nextConfig = {
 
     return config;
   },
+  // Only used in development mode - will be ignored in static export
+  async rewrites() {
+    return [
+      {
+        source: "/api/:path*",
+        destination: "http://localhost:3001/:path*", // Proxy to Backend
+      },
+    ];
+  },
 };
 
 // module.exports = withPWA(nextConfig);
