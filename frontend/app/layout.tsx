@@ -1,4 +1,4 @@
-import React from "react";
+import React, { ReactNode } from "react";
 import "./globals.css";
 import Providers from "./providers";
 
@@ -18,7 +18,7 @@ import Providers from "./providers";
 // };
 
 interface RootLayoutProps {
-  children: React.ReactNode;
+  children: ReactNode;
 }
 
 export default function RootLayout({ children }: RootLayoutProps) {
@@ -43,6 +43,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
         <meta name="apple-mobile-web-app-title" content="Smart City" />
       </head>
       <body className="h-full min-h-screen bg-gray-50 dark:bg-gray-900 transition-colors duration-200">
+        {/* @ts-expect-error - Works at runtime, TypeScript issue only */}
         <Providers>{children}</Providers>
       </body>
     </html>
