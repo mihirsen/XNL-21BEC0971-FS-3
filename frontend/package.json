@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "build:no-checks": "cross-env NEXT_SKIP_TYPESCRIPT_AND_ESLINT_CHECKS=1 next build && next export",
+    "build:no-checks": "cross-env NEXT_SKIP_TYPESCRIPT_AND_ESLINT_CHECKS=1 next build",
     "start": "next start",
     "lint": "next lint",
     "test": "jest"

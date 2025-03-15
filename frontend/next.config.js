@@ -12,8 +12,12 @@ const nextConfig = {
   experimental: {
     appDir: true,
   },
+  // Add output: 'export' to enable static site generation
+  output: "export",
   images: {
     domains: ["via.placeholder.com", "source.unsplash.com"],
+    // Required for static export
+    unoptimized: true,
   },
   // Skip TypeScript type checking in production build
   typescript: {

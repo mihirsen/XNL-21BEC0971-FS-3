@@ -5,8 +5,4 @@
 
 [build.environment]
   NETLIFY_NEXT_PLUGIN_SKIP = "true"
-  NEXT_SKIP_TYPESCRIPT_AND_ESLINT_CHECKS = "1"
-
-# We're removing the Next.js plugin since it requires Next.js 13.5.0+ but we have 13.1.1
-# [[plugins]]
-#  package = "@netlify/plugin-nextjs" 
+  NEXT_SKIP_TYPESCRIPT_AND_ESLINT_CHECKS = "1" 
