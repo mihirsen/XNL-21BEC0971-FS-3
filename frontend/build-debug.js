@@ -120,6 +120,27 @@ try {
   const nextConfig = require("./next.config.js");
   console.log(JSON.stringify(nextConfig, null, 2));
 
+  // Validate experimental features
+  console.log("\nValidating Next.js config:");
+  if (nextConfig.experimental) {
+    console.log(
+      "Experimental features detected:",
+      Object.keys(nextConfig.experimental)
+    );
+
+    // Check for appDir
+    if (nextConfig.experimental.appDir) {
+      console.log("- appDir is enabled: compatible with Next.js 13.1.1");
+    }
+
+    // Check for potentially problematic experimental features
+    if (nextConfig.experimental.outputFileTracingExcludes) {
+      console.log(
+        "- WARNING: outputFileTracingExcludes might not be compatible with Next.js 13.1.1"
+      );
+    }
+  }
+
   // Run Next.js build
   console.log("\nRunning next build...");
   execSync("next build", { stdio: "inherit" });

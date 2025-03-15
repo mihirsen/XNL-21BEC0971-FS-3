@@ -11,17 +11,9 @@ const path = require("path");
 
 const nextConfig = {
   reactStrictMode: true,
-  // Re-enable experimental appDir which is needed for the app directory
+  // Simply enable appDir without additional experimental features
   experimental: {
     appDir: true,
-    // Add workarounds for app directory in static export
-    outputFileTracingExcludes: {
-      "*": [
-        "node_modules/@swc/core-linux-x64-gnu",
-        "node_modules/@swc/core-linux-x64-musl",
-        "node_modules/@esbuild/linux-x64",
-      ],
-    },
   },
   // Add output: 'export' to enable static site generation
   output: "export",
@@ -47,7 +39,7 @@ const nextConfig = {
   // Ensure trailing slashes for compatibility
   trailingSlash: true,
   // Configure webpack to handle path aliases correctly
-  webpack: (config, { buildId, dev, isServer, defaultLoaders, webpack }) => {
+  webpack: (config) => {
     // Correctly resolve path aliases
     config.resolve.alias = {
       ...config.resolve.alias,
