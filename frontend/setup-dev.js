@@ -27,6 +27,18 @@ if (fs.existsSync(backendPath)) {
   } else {
     console.log("Backend dependencies already installed.");
   }
+
+  // Make sure NestJS CLI is installed
+  try {
+    console.log("Checking for NestJS CLI...");
+    execSync("cd ../backend && npx nest --version", { stdio: "pipe" });
+    console.log("NestJS CLI is available.");
+  } catch (e) {
+    console.log("Installing NestJS CLI...");
+    execSync("cd ../backend && npm install -g @nestjs/cli", {
+      stdio: "inherit",
+    });
+  }
 } else {
   console.error(
     "Backend directory not found. Make sure the backend directory exists at the same level as the frontend directory."
@@ -34,6 +46,6 @@ if (fs.existsSync(backendPath)) {
   process.exit(1);
 }
 
-console.log(
-  '\nSetup complete! You can now run "npm run dev:full" to start both frontend and backend servers.'
-);
+console.log("\nSetup complete! You can now run:");
+console.log("1. To check if backend is running: node check-backend.js");
+console.log("2. To start both servers: npm run dev:full");

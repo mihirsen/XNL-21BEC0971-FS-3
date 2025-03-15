@@ -2,6 +2,7 @@ import { NestFactory } from "@nestjs/core";
 import { AppModule } from "./app.module";
 import { ConfigService } from "@nestjs/config";
 import { Logger } from "@nestjs/common";
+import * as express from "express";
 
 async function bootstrap() {
   const logger = new Logger("Bootstrap");
@@ -31,11 +32,23 @@ async function bootstrap() {
     maxAge: 3600,
   });
 
+  // Add health check endpoint
+  app.use("/health", (req, res) => {
+    res.json({
+      status: "ok",
+      uptime: process.uptime(),
+      timestamp: new Date().toISOString(),
+    });
+  });
+
   await app.listen(port);
   logger.log(`Application is running on: http://localhost:${port}`);
   logger.log(
     `WebSocket gateway should be available at: ws://localhost:${port}/iot`
   );
+
+  // Log health endpoint URL
+  logger.log(`Health endpoint: http://localhost:${port}/health`);
 }
 
 bootstrap();

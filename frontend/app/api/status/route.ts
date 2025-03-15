@@ -1,5 +1,12 @@
 import { NextResponse } from "next/server";
 
+// Define process.env type for TypeScript
+declare const process: {
+  env: {
+    BACKEND_URL?: string;
+  };
+};
+
 export async function GET() {
   const backendUrl = process.env.BACKEND_URL || "http://localhost:3001";
 

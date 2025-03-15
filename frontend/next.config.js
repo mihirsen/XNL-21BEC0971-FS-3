@@ -48,7 +48,7 @@ const nextConfig = {
 
     return config;
   },
-  // Only used in development mode - will be ignored in static export
+  // Add API route rewrites for development mode
   async rewrites() {
     return [
       {
